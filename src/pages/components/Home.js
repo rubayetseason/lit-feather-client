@@ -7,9 +7,9 @@ import { FaFacebook, FaYoutube, FaInstagram, FaFacebookMessenger, FaArrowRight }
 const Home = () => {
     return (
 
-        <Container className='mt-4 p-4'>
+        <Container className='mt-1 p-4'>
             <Row>
-                <Col lg='6'>
+                <Col lg='6' className='mt-4'>
                     <Lottie animationData={reader} loop={true} /></Col>
                 <Col lg='6'>
                     <h2 className='bg-danger text-white mt-4 py-1  text-center'>Welcome to Lit Feather</h2>
