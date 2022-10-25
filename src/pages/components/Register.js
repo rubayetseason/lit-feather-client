@@ -2,33 +2,38 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     return (
         <div>
             <Container>
                 <h2 className='mt-5 bg-danger text-white py-2  text-center'>Register Now</h2>
-            </Container>
-            <Form>
+                <Form className='mt-4'>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Your Name</Form.Label>
+                    <Form.Control type="text" placeholder="Enter name" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Picture URL</Form.Label>
+                    <Form.Control type="text" placeholder="Picture link" />
+                </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
+                    <Form.Control type="email" placeholder="Enter email"  required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type="password" placeholder="Password"  required />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
+                <p><small>Already have an account? <Link to='/login'>Login now</Link> </small></p>
                 <Button variant="primary" type="submit">
-                    Submit
+                    Register
                 </Button>
             </Form>
+            </Container>
+            
         </div>
     );
 };
