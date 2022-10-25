@@ -14,25 +14,30 @@ const Header = () => {
                 <Navbar.Brand href="#home">
                     <img src={banner} width="40" height="40" className="d-inline-block align-top" />
                 </Navbar.Brand>
-                <Navbar.Brand><Link to='/'>Lit-Feather</Link></Navbar.Brand>
+                <Navbar.Brand className='title'><Link to='/'>Lit-Feather</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link><Link to='/'>Home</Link></Nav.Link>
-                        <Nav.Link><Link to='/courses'>Courses</Link></Nav.Link>
-                        <Nav.Link><Link to='/faq'>FAQs</Link></Nav.Link>
-                        <Nav.Link><Link to='/blog'>Blog</Link></Nav.Link>
-                        <Nav.Link><Form>
-                            <Form.Check type="switch" id="custom-switch" label="" />
-                        </Form></Nav.Link>
+                        <Nav.Link className='nav-btn'><Link to='/'>Home</Link></Nav.Link>
+                        <Nav.Link className='nav-btn'><Link to='/courses'>Courses</Link></Nav.Link>
+                        <Nav.Link className='nav-btn'><Link to='/faq'>FAQs</Link></Nav.Link>
+                        <Nav.Link className='nav-btn'><Link to='/blog'>Blog</Link></Nav.Link>
+                        
                     </Nav>
                     <Nav>
-                        <Nav.Link><Link to='login'>
+                    <Form>
+                            <Form.Check 
+        type="switch"
+        id="custom-switch"
+        label=""
+      />
+                        </Form>
+                        <Nav.Link className='nav-btn'><Link to='login'>
                             Login
-                            </Link></Nav.Link>
-                        <Nav.Link eventKey={2}>
+                        </Link></Nav.Link>
+                        <Nav.Link eventKey={2} className='nav-btn'>
                             <Link to='register'>
-                            Register
+                                Register 
                             </Link>
                         </Nav.Link>
                     </Nav>
