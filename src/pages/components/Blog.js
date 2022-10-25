@@ -5,7 +5,7 @@ import Accordion from 'react-bootstrap/Accordion';
 const Blog = () => {
   return (
     <Container>
-      <h2 className='mt-5 bg-danger text-white py-2'>General questions</h2>
+      <h2 className='mt-5 bg-danger text-white py-2  text-center'>General questions</h2>
       <div className='mt-4'>
         <Accordion>
           <Accordion.Item eventKey="0">

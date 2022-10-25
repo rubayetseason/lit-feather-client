@@ -5,7 +5,7 @@ import { SlQuestion } from "react-icons/sl";
 const FAQ = () => {
   return (
     <Container>
-      <h2 className='mt-5 bg-danger text-white py-2'>Frequently asked questions</h2>
+      <h2 className='mt-5 bg-danger text-white py-2 text-center'>Frequently asked questions</h2>
       <div>
         <h5><SlQuestion /> What is the purpose of Lit-feather?
         </h5>

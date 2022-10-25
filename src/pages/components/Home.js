@@ -12,24 +12,24 @@ const Home = () => {
                 <Col lg='6'>
                     <Lottie animationData={reader} loop={true} /></Col>
                 <Col lg='6'>
-                    <h2 className='bg-danger text-white mt-4'>Welcome to Lit Feather</h2>
-                    <h5 className='mt-4'> Everything you need for everything you read.</h5>
-                    <div><p className='fw-light mt-4'>
+                    <h2 className='bg-danger text-white mt-4 py-1  text-center'>Welcome to Lit Feather</h2>
+                    <h5 className='mt-4  text-center'> Everything you need for everything you read.</h5>
+                    <div><p className='fw-light mt-4  text-center'>
                         Welcome to our site where you find can your desired literature topics and courses which are relied by millions of students.
                     </p>
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-4  text-center">
                         <button className='btn btn-danger rounded-pill py-2 px-4 fw-semibold mt-4'>
                             Our Courses <FaArrowRight />
                         </button>
-                        <h6 className="mt-4">Find us on</h6>
-                        <div>
+                        <h6 className="mt-4  text-center">Find us on</h6>
+                        <div className='text-center'>
                             <FaFacebook className='me-2' /> <FaYoutube className='me-2' /> <FaInstagram className="me-2" /> <FaFacebookMessenger />
                         </div>
 
                     </div>
                     <hr />
-                    <div>
+                    <div className='text-center'>
                         <div className="d-flex justify-content-around mt-4">
                             <div>
                                 <div>
