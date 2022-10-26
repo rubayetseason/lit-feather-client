@@ -2,6 +2,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import './Detail.css';
 import { AiFillStar } from "react-icons/ai";
+import { BsDownload } from "react-icons/bs";
 
 const Detail = () => {
     const course = useLoaderData();
@@ -9,7 +10,9 @@ const Detail = () => {
     console.log(course);
     return (
         <div>
-            <h2 className='mt-5 bg-danger text-white py-2 text-center'>{name}</h2>
+            <div className='bd-danger'>
+                <h2 className='mt-5 bg-danger text-white py-2 text-center'>{name} &nbsp; &nbsp;  <BsDownload /></h2>
+            </div>
             <img className='detail-img' src={image_url} />
             <div>
                 <p className='text-center'>By: {author}</p>

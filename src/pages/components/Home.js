@@ -3,6 +3,7 @@ import Lottie from 'lottie-react'
 import reader from '../../assets/reader.json';
 import { Col, Container, Row } from 'react-bootstrap';
 import { FaFacebook, FaYoutube, FaInstagram, FaFacebookMessenger, FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -19,9 +20,9 @@ const Home = () => {
                     </p>
                     </div>
                     <div className="mb-4  text-center">
-                        <button className='btn btn-danger rounded-pill py-2 px-4 fw-semibold mt-4'>
+                        <Link to='/courses'><button className='btn btn-danger rounded-pill py-2 px-4 fw-semibold mt-4'>
                             Our Courses <FaArrowRight />
-                        </button>
+                        </button></Link>
                         <h6 className="mt-4  text-center">Find us on</h6>
                         <div className='text-center'>
                             <FaFacebook className='me-2' /> <FaYoutube className='me-2' /> <FaInstagram className="me-2" /> <FaFacebookMessenger />
