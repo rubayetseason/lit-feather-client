@@ -10,7 +10,7 @@ import { AuthContext } from '../../context/UserContext';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-  const { GoogleLogin, GithubLogin } = useContext(AuthContext);
+  const { GoogleLogin, GithubLogin, UserLogIn } = useContext(AuthContext);
   const GoogleProvider = new GoogleAuthProvider();
   const GithubProvider = new GithubAuthProvider();
 
@@ -41,6 +41,16 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+
+    UserLogIn(email, password)
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+      form.reset();
+  })
+  .catch(e => {
+      console.error(e);
+  });
 };
 
 
