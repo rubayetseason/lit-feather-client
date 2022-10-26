@@ -8,6 +8,7 @@ import FAQ from "../pages/components/FAQ";
 import Home from "../pages/components/Home";
 import Login from "../pages/components/Login";
 import Register from "../pages/components/Register";
+import NotFound from "../pages/shared/NotFound";
 import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
@@ -43,5 +44,6 @@ export const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/checkout/${params.id}`)
             }
         ]
-    }
+    },
+    { path: '*', element: <NotFound></NotFound> }
 ])
