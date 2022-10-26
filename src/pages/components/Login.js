@@ -8,8 +8,10 @@ import { FiGithub } from "react-icons/fi";
 import { useContext } from 'react';
 import { AuthContext } from '../../context/UserContext';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { useState } from 'react';
 
 const Login = () => {
+  const [error, setError] = useState('');
   const { GoogleLogin, GithubLogin, UserLogIn } = useContext(AuthContext);
   const GoogleProvider = new GoogleAuthProvider();
   const GithubProvider = new GithubAuthProvider();
@@ -43,22 +45,24 @@ const Login = () => {
     const password = form.password.value;
 
     UserLogIn(email, password)
-    .then(result => {
-      const user = result.user;
-      console.log(user);
-      form.reset();
-  })
-  .catch(e => {
-      console.error(e);
-  });
-};
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        setError('');
+        form.reset();
+      })
+      .catch(e => {
+        console.error(e);
+        setError(e.message);
+      });
+  };
 
 
   return (
     <div>
       <Container>
         <h2 className='mt-5 bg-danger text-white py-2 text-center'>Login Now</h2>
-        <Form className='mt-4'  onSubmit={handleForm}>
+        <Form className='mt-4' onSubmit={handleForm}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" name="email" placeholder="Enter email" required />
@@ -68,6 +72,7 @@ const Login = () => {
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" name="password" placeholder="Password" required />
           </Form.Group>
+          <p className='text-center'><small className='text-center text-danger'>{error}</small></p>
           <p className='text-center'><small>Don't have an account? <Link to='/register'>Register now</Link> </small></p>
           <div className='text-center'>
             <Button variant="primary" type="submit" >
