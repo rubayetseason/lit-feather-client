@@ -7,8 +7,18 @@ import './Header.css';
 import { Link } from 'react-router-dom';
 import banner from '../../assets/pagebanner.png'
 import LeftNav from './LeftNav';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/UserContext';
 
 const Header = () => {
+    const { user, UserLogOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        UserLogOut()
+            .then(result => {
+                const user = result.user;
+            })
+            .catch(error => console.log(error))
+    };
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -33,18 +43,26 @@ const Header = () => {
                         </Form>
                     </Nav>
                     <Nav>
-                        <Nav.Link className='nav-btn'><Link to='login'>
-                            Login
-                        </Link></Nav.Link>
-                        <Nav.Link eventKey={2} className='nav-btn'>
-                            <Link to='register'>
-                                Register
-                            </Link>
-                        </Nav.Link>
+                        {
+                            user?.uid ? <><button onClick={handleLogOut} className='btn btn-danger'>Log Out</button></>
+
+                                :
+
+                                <><Nav.Link className='nav-btn'>
+                                    <Link to='login'>
+                                        Login
+                                    </Link>
+                                </Nav.Link>
+                                    <Nav.Link eventKey={2} className='nav-btn'>
+                                        <Link to='register'>
+                                            Register
+                                        </Link>
+                                    </Nav.Link></>
+                        }
                     </Nav>
                     <div className='d-lg-none'>
-                            <LeftNav></LeftNav>
-                        </div>
+                        <LeftNav></LeftNav>
+                    </div>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
