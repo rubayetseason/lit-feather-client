@@ -10,7 +10,7 @@ import { Container } from 'react-bootstrap';
 const Detail = () => {
     const ref = useRef();
     const course = useLoaderData();
-    const { name, image_url, author, rating, details } = course;
+    const { id, name, image_url, author, rating, details } = course;
     return (
         <div ref={ref}>
             <Container>
@@ -26,7 +26,7 @@ const Detail = () => {
                     <small>{details}</small>
                 </div>
                 <div className='text-center'>
-                    <Link to='checkout'><button className='btn btn-outline-danger my-4 text-center'>Get Premium Access</button></Link>
+                    <Link to={`/checkout/${id}`}><button className='btn btn-outline-danger my-4 text-center'>Get Premium Access</button></Link>
                 </div>
             </Container>
         </div>
