@@ -36,20 +36,27 @@ const Login = () => {
       })
   };
 
+  const handleForm = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+};
+
 
   return (
     <div>
       <Container>
         <h2 className='mt-5 bg-danger text-white py-2 text-center'>Login Now</h2>
-        <Form className='mt-4'>
+        <Form className='mt-4'  onSubmit={handleForm}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" required />
+            <Form.Control type="email" name="email" placeholder="Enter email" required />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" required />
+            <Form.Control type="password" name="password" placeholder="Password" required />
           </Form.Group>
           <p className='text-center'><small>Don't have an account? <Link to='/register'>Register now</Link> </small></p>
           <div className='text-center'>
