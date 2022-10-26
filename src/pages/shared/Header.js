@@ -9,7 +9,6 @@ import banner from '../../assets/pagebanner.png'
 import LeftNav from './LeftNav';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/UserContext';
-import { AiOutlineUser } from "react-icons/ai";
 
 const Header = () => {
     const { user, UserLogOut } = useContext(AuthContext);

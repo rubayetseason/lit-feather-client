@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import './Detail.css';
 import { AiFillStar } from "react-icons/ai";
 import { BsDownload } from "react-icons/bs";
@@ -18,8 +18,11 @@ const Detail = () => {
                 <p className='text-center'>By: {author}</p>
                 <p className='text-center'><AiFillStar /> {rating}</p>
             </div>
-            <div className='my-4'>
+            <div className='my-2'>
                 <small>{details}</small>
+            </div>
+            <div className='text-center'>
+            <Link to='checkout'><button className='btn btn-outline-danger my-4 text-center'>Get Premium Access</button></Link>
             </div>
         </div>
     );
