@@ -13,7 +13,6 @@ import { AuthContext } from '../../context/UserContext';
 const Header = () => {
     const { user, UserLogOut } = useContext(AuthContext);
     const name = user?.displayName;
-    console.log(user);
     const handleLogOut = () => {
         UserLogOut()
             .then(result => {
