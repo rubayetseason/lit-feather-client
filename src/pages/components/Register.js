@@ -9,7 +9,7 @@ import { AuthContext } from '../../context/UserContext';
 
 const Register = () => {
     const [error, setError] = useState('');
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
     const handleForm = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -24,12 +24,29 @@ const Register = () => {
                 console.log(user);
                 setError('');
                 form.reset();
+                handleUpdateUserProfile(name, photoURL);
             })
             .catch(e => {
                 console.error(e);
                 setError(e.message);
             });
     };
+
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+            .then(result => {
+                const user = result.user;
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    };
+
 
     return (
         <div>
