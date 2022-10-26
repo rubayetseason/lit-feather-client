@@ -11,7 +11,7 @@ const Detail = () => {
     return (
         <div>
             <div className='bd-danger'>
-                <h2 className='mt-5 bg-danger text-white py-2 text-center'>{name} &nbsp; &nbsp;  <BsDownload /></h2>
+                <h3 className='mt-5 bg-danger text-white py-2 text-center'>{name} &nbsp; &nbsp; <button className='bg-danger border-0'><BsDownload /></button> </h3>
             </div>
             <img className='detail-img' src={image_url} />
             <div>
