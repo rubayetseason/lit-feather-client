@@ -7,11 +7,12 @@ import { FcGoogle } from "react-icons/fc";
 import { FiGithub } from "react-icons/fi";
 import { useContext } from 'react';
 import { AuthContext } from '../../context/UserContext';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-  const { GoogleLogin } = useContext(AuthContext);
+  const { GoogleLogin, GithubLogin } = useContext(AuthContext);
   const GoogleProvider = new GoogleAuthProvider();
+  const GithubProvider = new GithubAuthProvider();
 
   const handleGoogleSignIn = () => {
     GoogleLogin(GoogleProvider)
@@ -22,9 +23,20 @@ const Login = () => {
       .catch(error => {
         console.log(error);
       })
-
-
   };
+
+  const handleGithubLogin = () => {
+    GithubLogin(GithubProvider)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  };
+
+
   return (
     <div>
       <Container>
@@ -49,7 +61,7 @@ const Login = () => {
         </Form>
         <div className='text-center'>
           <button className='rounded-0 btn btn-outline-dark my-2' onClick={handleGoogleSignIn}><FcGoogle /> Login with Google</button> <br />
-          <button className='rounded-0 btn btn-outline-dark'><FiGithub /> Login with Github</button>
+          <button onClick={handleGithubLogin} className='rounded-0 btn btn-outline-dark'><FiGithub /> Login with Github</button>
         </div>
 
       </Container>

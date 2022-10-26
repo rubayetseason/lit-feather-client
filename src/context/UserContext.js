@@ -13,6 +13,9 @@ const UserContext = ({ children }) => {
     const GoogleLogin = (provider) => {
         return signInWithPopup(auth, provider);
     };
+    const GithubLogin = (provider) => {
+        return signInWithPopup(auth, provider);
+    };
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -23,7 +26,7 @@ const UserContext = ({ children }) => {
         }
     }, []);
 
-    const authInfo = { user, GoogleLogin };
+    const authInfo = { user, GoogleLogin, GithubLogin };
 
     return (
         <AuthContext.Provider value={authInfo}>
