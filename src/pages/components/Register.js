@@ -1,10 +1,13 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/UserContext';
 
 const Register = () => {
+    const { createUser } = useContext(AuthContext);
     const handleForm = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -12,6 +15,16 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+            })
+            .catch(e => {
+                console.error(e);
+            });
     };
 
     return (
