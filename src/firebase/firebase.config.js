@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBz8bBKik_U5IF2YV9AF9Ctdu8ttGLugOM",
-  authDomain: "litfeather-client.firebaseapp.com",
-  projectId: "litfeather-client",
-  storageBucket: "litfeather-client.appspot.com",
-  messagingSenderId: "668139179777",
-  appId: "1:668139179777:web:95a211c21e19e4ad64d500"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase
