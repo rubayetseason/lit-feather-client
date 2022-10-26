@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form } from 'react-bootstrap';
+import { Form, Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -9,9 +9,12 @@ import banner from '../../assets/pagebanner.png'
 import LeftNav from './LeftNav';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/UserContext';
+import { AiOutlineUser } from "react-icons/ai";
 
 const Header = () => {
     const { user, UserLogOut } = useContext(AuthContext);
+    const name = user?.displayName;
+    console.log(user);
     const handleLogOut = () => {
         UserLogOut()
             .then(result => {
@@ -43,6 +46,15 @@ const Header = () => {
                         </Form>
                     </Nav>
                     <Nav>
+                        {user?.photoURL ?
+                            <Image
+                                style={{ height: '35px' }}
+                                roundedCircle
+                                src={user?.photoURL} title={name}>
+                            </Image>
+                            : <></>
+                        }
+                        &nbsp; &nbsp;
                         {
                             user?.uid ? <><button onClick={handleLogOut} className='btn btn-danger'>Log Out</button></>
 
