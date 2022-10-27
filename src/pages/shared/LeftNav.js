@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const LeftNav = () => {
     const [catagories, setCatagories] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/courses')
+        fetch('https://litfeather-server.vercel.app/courses')
             .then(res => res.json())
             .then(data => setCatagories(data))
     }, []);
