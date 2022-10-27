@@ -3,8 +3,8 @@
 An educational website where literature lovers can find their desired courses from thousands of collections.
 
 ## Live website link
-[Litfeather live website link](https://www.google.com)
-[https://www.google.com](https://www.google.com)
+[Litfeather live website link](https://litfeather-client.web.app)
+[https://litfeather-client.web.app](https://litfeather-client.web.app)
 
 
 ## Features and Functionalities of Litfeather
